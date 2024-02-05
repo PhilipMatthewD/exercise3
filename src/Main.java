@@ -2,15 +2,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         double tempF = 0;
         while (tempF > -460) {
-            System.out.println("What is the temperature in Ferenheit?");
-            tempF = input.nextDouble();
-            System.out.println("The temperature in celcius is " + convertC(tempF));
+            tempF = grabInput();
+            exportResponse(tempF);
         }
     }
-    public static double convertC (double a){
+    static double exportResponse (double a){
+        System.out.println("The temperature in celcius is " + convertC(a));
+        return a;
+    }
+    static double grabInput (){
+        Scanner input = new Scanner(System.in);
+        System.out.println("What is the temperature in Ferenheit?");
+        double tempF = input.nextDouble();
+        return tempF;
+    }
+    static double convertC (double a){
         a = (a - 32) * 5 / 9;
         return a;
     }
